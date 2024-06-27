@@ -1,0 +1,123 @@
+<html>
+<head>
+
+<title>HESAP MAKİNESİ</title>
+        <style>
+            body{
+                background-image: url('./mat.jpg');
+                background-size: cover;
+                background-position: center;
+                position: relative;
+                
+            }
+            body::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: inherit; /* Body'den arka plan resmini miras al */
+            opacity: 0.5; /* Saydamlığı %50 olarak ayarla */
+            z-index: -1; /* İçeriklerin arkasına yerleştir */
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Tam ekran yüksekliği */
+        }
+        input[type="number"], button {
+            width: 150px; /* Genişlik */
+            height: 40px; /* Yükseklik */
+            margin: 5px; /* Dış boşluk */
+            padding: 10px; /* İç boşluk */
+            font-size: 16px; /* Yazı boyutu */
+        }   
+         button {
+            border-radius: 20px; /* Yuvarlak köşeler için */
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); /* Gölge efekti için */
+            background-color: #4CAF50; /* Butonun iç rengi için */
+            color: white; /* Buton üzerindeki yazı rengi için */
+            border: none; /* Varsayılan kenarlık stilini kaldır */
+            cursor: pointer; /* Fare imlecini el simgesine dönüştür */
+            transition: all 0.3s; /* Geçiş efektleri için */
+        }
+
+            button:hover {
+            background-color: #131c14; /* Fare butonun üzerine geldiğinde rengi değiştir */
+        }
+        #sonuc {
+            width: 300px; /* Genişlik */
+            height: 50px; /* Yükseklik */
+            margin: 10px auto; /* Otomatik marjın ile ortala */
+            padding: 10px; /* İç boşluk */
+            font-size: 20px; /* Yazı boyutu */
+            text-align: center; /* Metni ortala */
+            border-radius: 15px; /* Yuvarlak köşeler */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Gölge efekti */
+            background-color: #ffffff; /* Arka plan rengi */
+            color: #333333; /* Yazı rengi */
+            display: flex; /* Flexbox kullan */
+            justify-content: center; /* Yatayda ortala */
+            align-items: center; /* Dikeyde ortala */
+            margin-bottom: 20px; /* Alt marjın */
+        }
+        .hesap-makinesi-container {
+            background-color: rgba(61, 59, 59, 0.5); /* Hafif şeffaf beyaz arka plan */
+            border-radius: 15px; /* Yuvarlak köşeler */
+            padding: 20px; /* İç boşluk */
+            box-shadow: 0 4px 8px rgba(6, 5, 5, 0.1); /* Gölge efekti */
+            width: fit-content; /* İçerik genişliğine göre ayarla */
+            margin: auto; /* Otomatik marjın ile ortala */ 
+            display: flex;
+            flex-direction: column;
+            align-items: center;  
+        } 
+        </style>
+</head>
+<body>
+  <div class="container"> 
+     <div class="hesap-makinesi-container">
+        <div id="sonuc">Sonuç burada görünecek</div>
+        <input id="sayi1" type="number"/>
+        <input id="sayi2" type="number">
+        <button onclick="hesapla('+')">TOPLAMA İşlemi</button>
+        <button onclick="hesapla('-')">ÇIKARMA İşlemi</button>
+        <button onclick="hesapla('*')">ÇARPMA İşlemi</button>
+        <button onclick="hesapla('/')">BÖLME İşlemi</button>
+        
+         </div>
+    </div>    
+        <script>
+            var deneme = "Bölen '0' olamaz " ;
+            alert(deneme);
+
+           var sayi1 =document.getElementById("sayi1");
+          var sayi2 =document.getElementById("sayi2");
+         var sonuc = document.getElementById("sonuc");
+         function hesapla(type){
+            var sonucText = "" ;
+
+            switch(type){
+                case "+":
+                    sonucText = Number(sayi1.value) + Number(sayi2.value);
+                    break ;
+                case "-":
+                    sonucText = Number(sayi1.value) - Number(sayi2.value);
+                    break;
+                case "*":
+                    sonucText = Number(sayi1.value) * Number(sayi2.value);
+                    break ;
+                case "/":
+                    sonucText = Number(sayi1.value) / Number(sayi2.value);
+                    break ;
+            }
+            sonuc.innerHTML =sonucText ;           
+        }       
+    </script>
+   </div>
+</body> 
+</html>
